@@ -1,0 +1,387 @@
+/* --- 1. Global Reset & Variables (More Sophisticated Palette) --- */
+:root {
+    --primary-color: #008080; /* Deep Teal/Cyan for accents and CTAs */
+    --secondary-color: #2c3e50; /* Dark Charcoal/Navy for headers and background */
+    --text-color: #34495e; /* Slightly lighter dark gray for body text */
+    --background-color: #ffffff;
+    --light-background: #ecf0f1; /* Very light gray for alternating sections */
+    --font-family: 'Roboto', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    --shadow-light: 0 2px 8px rgba(0, 0, 0, 0.08);
+    --shadow-hover: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-family);
+    line-height: 1.7;
+    color: var(--text-color);
+    background-color: var(--background-color);
+    scroll-behavior: smooth;
+    font-size: 16px;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+h1, h2, h3 {
+    color: var(--secondary-color);
+    font-weight: 700;
+}
+
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #005f5f; /* Darker Teal on hover */
+}
+
+/* --- 2. Header & Navigation --- */
+header {
+    background: var(--secondary-color);
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: #ecf0f1; /* Light color for logo on dark background */
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+}
+
+nav ul li {
+    margin-left: 1.5rem;
+}
+
+nav ul a {
+    color: #ecf0f1;
+    font-weight: 500;
+    padding: 0.5rem 0;
+    position: relative;
+}
+
+/* Underline animation effect */
+nav ul a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--primary-color);
+    transition: width 0.3s ease-in-out;
+}
+
+nav ul a:hover::after,
+nav ul a:focus::after {
+    width: 100%;
+}
+
+nav ul a:hover {
+    color: var(--primary-color);
+}
+
+
+/* --- 3. Section Styling --- */
+.section-padding {
+    padding: 5rem 0; /* Increased padding */
+}
+
+.bg-light {
+    background-color: var(--light-background);
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.8rem;
+    margin-bottom: 3.5rem;
+    color: var(--secondary-color);
+    position: relative;
+    padding-bottom: 0.5rem;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 4px;
+    background-color: var(--primary-color);
+    border-radius: 2px;
+}
+
+/* --- 4. Hero Section (Home) --- */
+.hero {
+    background: var(--secondary-color);
+    color: #fff;
+    text-align: center;
+    padding: 8rem 0; /* More vertical space */
+}
+
+.hero h1 {
+    font-size: 4.5rem;
+    margin-bottom: 0.5rem;
+    color: var(--primary-color); /* Highlight name */
+    font-weight: 900;
+}
+
+.hero .greeting {
+    font-size: 1.3rem;
+    font-weight: 300;
+    margin-bottom: 0.5rem;
+}
+
+.hero .tagline {
+    font-size: 1.8rem;
+    font-weight: 300;
+    margin-bottom: 2.5rem;
+    color: #ecf0f1;
+}
+
+.cta-button {
+    display: inline-block;
+    background: var(--primary-color);
+    color: #fff;
+    padding: 0.8rem 2rem;
+    border-radius: 50px; /* Rounded corners */
+    font-weight: 600;
+    letter-spacing: 1px;
+    transition: background 0.3s ease, transform 0.2s ease;
+    box-shadow: var(--shadow-light);
+}
+
+.cta-button:hover {
+    background: #005f5f;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* --- 5. About Section --- */
+.about-content {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: justify;
+    font-size: 1.1rem;
+}
+
+.external-links {
+    margin-top: 3rem;
+    text-align: center;
+}
+
+.link-btn {
+    display: inline-block;
+    border: 2px solid var(--primary-color);
+    color: var(--primary-color);
+    padding: 0.75rem 1.5rem;
+    margin: 0 0.75rem;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: background 0.3s, color 0.3s;
+}
+
+.link-btn:hover {
+    background: var(--primary-color);
+    color: #fff;
+    box-shadow: var(--shadow-light);
+}
+
+
+/* --- 6. Skills Section --- */
+.skills-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.skill-card {
+    background: var(--background-color);
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: var(--shadow-light);
+    transition: box-shadow 0.3s ease;
+}
+
+.skill-card:hover {
+    box-shadow: var(--shadow-hover);
+}
+
+.skill-card h3 {
+    color: var(--primary-color);
+    margin-bottom: 1.2rem;
+    font-size: 1.5rem;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 0.5rem;
+}
+
+.skill-card ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.skill-card li {
+    padding: 0.5rem 0;
+    border-left: 3px solid var(--light-background);
+    padding-left: 15px;
+}
+
+.skill-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+
+.skill-list .skill-tag {
+    background-color: var(--primary-color);
+    color: #fff;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* --- 7. Portfolio Section --- */
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+}
+
+.project-card {
+    background: var(--background-color);
+    border-radius: 10px;
+    box-shadow: var(--shadow-light);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid #e0e0e0;
+}
+
+.project-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-hover);
+}
+
+.project-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    display: block;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.project-card h3 {
+    color: var(--secondary-color);
+    padding: 1.2rem 1.2rem 0.6rem;
+    font-size: 1.4rem;
+}
+
+.project-description {
+    padding: 0 1.2rem;
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.project-link {
+    display: inline-block;
+    margin: 0 0.5rem 1.2rem 1.2rem;
+    font-size: 0.95rem;
+    border: 2px solid var(--primary-color);
+    color: var(--primary-color);
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+    transition: background 0.3s, color 0.3s;
+}
+
+.project-link:hover {
+    background: var(--primary-color);
+    color: #fff;
+}
+
+/* --- 8. Contact Section --- */
+.contact-details {
+    text-align: center;
+    margin-top: 3rem;
+    font-size: 1.2rem;
+}
+
+.contact-details p {
+    margin-bottom: 0.8rem;
+}
+
+.contact-details a {
+    font-weight: 600;
+}
+
+/* --- 9. Footer --- */
+footer {
+    background: var(--secondary-color);
+    color: #ecf0f1;
+    text-align: center;
+    padding: 2rem 0;
+    font-size: 1rem;
+}
+
+/* --- 10. Responsiveness --- */
+@media (max-width: 992px) {
+    .skills-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    header .container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    nav ul {
+        margin-top: 1rem;
+        padding: 0;
+        justify-content: center;
+    }
+
+    nav ul li {
+        margin: 0 0.4rem;
+    }
+
+    .hero h1 {
+        font-size: 3.5rem;
+    }
+
+    .hero .tagline {
+        font-size: 1.4rem;
+    }
+
+    .section-title {
+        font-size: 2.2rem;
+    }
+}
